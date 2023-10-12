@@ -26,17 +26,19 @@ const ShipmentTable = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  const boxStyle = {
+    boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.1)",
+  };
   return (
     <Box>
       <Typography variant="h6">Shipment Details</Typography>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={boxStyle}>
         <Table
           sx={{ minWidth: 650 }}
           aria-label="simple table"
           style={{ overflowX: "auto" }}
         >
-          <TableHead>
+          <TableHead style={{ backgroundColor: "#f2f2f2" }}>
             <TableRow>
               <TableCell>Branch</TableCell>
               <TableCell align="center">Date</TableCell>
@@ -47,7 +49,7 @@ const ShipmentTable = () => {
           <TableBody>
             {transitEvents.map((row) => (
               <TableRow
-                key={row.key}
+                key={row.timestamp}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
