@@ -47,23 +47,25 @@ const ShipmentTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {transitEvents.map((row) => (
-              <TableRow
-                key={row.timestamp}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.hub || "--"}
-                </TableCell>
-                <TableCell align="center">
-                  {moment(row.timestamp).format("DD/MM/YYYY")}
-                </TableCell>
-                <TableCell align="center">
-                  {moment(row.timestamp).format("HH:mm A")}
-                </TableCell>
-                <TableCell align="center">{row.state}</TableCell>
-              </TableRow>
-            ))}
+            {transitEvents
+              .filter((d) => d.hub)
+              .map((row) => (
+                <TableRow
+                  key={row.timestamp}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.hub}
+                  </TableCell>
+                  <TableCell align="center">
+                    {moment(row.timestamp).format("DD/MM/YYYY")}
+                  </TableCell>
+                  <TableCell align="center">
+                    {moment(row.timestamp).format("HH:mm A")}
+                  </TableCell>
+                  <TableCell align="center">{row.state}</TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

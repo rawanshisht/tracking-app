@@ -4,7 +4,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ShipmentDetails from "./components/ShipmentDetails/shipment-details";
 import { Stack } from "@mui/material";
 function App() {
-  const theme = createTheme();
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Cairo, sans-serif",
+    },
+  });
   return (
     <>
       <ThemeProvider theme={theme}>

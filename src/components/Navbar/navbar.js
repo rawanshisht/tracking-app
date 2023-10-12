@@ -1,23 +1,6 @@
 import * as React from "react";
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  Container,
-  Button,
-  MenuItem,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-const pages = ["Products", "Pricing", "Blog"];
-
+import { Box } from "@mui/material";
 function Navbar() {
-  return (
-    <>
-      <Box>Navbar</Box>
-    </>
-  );
+  return <Box>Navbar</Box>;
 }
 export default Navbar;
