@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import moment from "moment";
 import {
   Typography,
   Box,
@@ -14,29 +15,6 @@ import {
 } from "@mui/material";
 
 const ShipmentTable = () => {
-  //   const data = [
-  //     {
-  //       key: "123",
-  //       branch: "Madinet Nasr",
-  //       date: "23/7/2023 monday",
-  //       time: "12:00 PM",
-  //       details: "Delivered",
-  //     },
-  //     {
-  //       key: "124",
-  //       branch: "Madinet Nasr",
-  //       date: "23/7/2023 monday",
-  //       time: "12:00 PM",
-  //       details: "Delivered",
-  //     },
-  //     {
-  //       key: "125",
-  //       branch: "Madinet Nasr",
-  //       date: "23/7/2023 monday",
-  //       time: "12:00 PM",
-  //       details: "Delivered",
-  //     },
-  //   ];
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [transitEvents, setTransitEvents] = useState([]);
   const trackingNumber = 67151313;
@@ -73,13 +51,13 @@ const ShipmentTable = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  Madinet Nasr
+                  {row.hub || "--"}
                 </TableCell>
                 <TableCell align="center">
-                  {row.timestamp.split("T")[0]}
+                  {moment(row.timestamp).format("DD/MM/YYYY")}
                 </TableCell>
                 <TableCell align="center">
-                  {row.timestamp.split("T")[1].split("Z")[0]}
+                  {moment(row.timestamp).format("HH:mm A")}
                 </TableCell>
                 <TableCell align="center">{row.state}</TableCell>
               </TableRow>
