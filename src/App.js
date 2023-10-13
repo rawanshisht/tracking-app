@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Stack spacing={2}>
+        <Stack justifyContent="space-around" alignItems="center" spacing={1}>
           <Navbar />
           <ShipmentDetails />
         </Stack>

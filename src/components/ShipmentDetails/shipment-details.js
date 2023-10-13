@@ -4,9 +4,12 @@ import { Stack, Box, Grid, Typography } from "@mui/material";
 import ShipmentProblem from "../ShipmentProblem/shipment-problem";
 const ShipmentDetails = () => {
   const address = {
-    Street: "Salah Salem",
-    Building: 99,
-    Gov: "Cairo",
+    AddressLine1: "Zohor Road",
+    AddressLine2: "Madinet Nasr",
+    BuildingNumber: "64",
+    PostCode: "B1 R1",
+    Government: "Cairo",
+    Country: "Egypt",
   };
   const boxStyle = {
     border: "1px solid grey",
@@ -15,11 +18,11 @@ const ShipmentDetails = () => {
     padding: "20px",
   };
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={8}>
+    <Grid container spacing={1} justifyContent="space-evenly">
+      <Grid item xs={10} sm={10} md={7}>
         <ShipmentTable />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={10} sm={10} md={4}>
         <Stack spacing={2}>
           <Box>
             <Typography variant="h6">Delivery Address</Typography>

@@ -26,17 +26,16 @@ const ShipmentTable = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  const boxStyle = {
+  const tableStyle = {
     boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.1)",
   };
   return (
     <Box>
       <Typography variant="h6">Shipment Details</Typography>
-      <TableContainer component={Paper} style={boxStyle}>
+      <TableContainer component={Paper} style={tableStyle}>
         <Table
-          sx={{ minWidth: 650 }}
+          sx={{ minWidth: 500, overflowX: "auto" }}
           aria-label="simple table"
-          style={{ overflowX: "auto" }}
         >
           <TableHead style={{ backgroundColor: "#f2f2f2" }}>
             <TableRow>

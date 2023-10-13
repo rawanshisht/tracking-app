@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Grid, Stack, Typography, Button } from "@mui/material";
+import { Box, Grid, Stack, Typography, Button, CardMedia } from "@mui/material";
+import image from "../../Assets/question.jpg";
 const ShipmentProblem = () => {
   const boxStyle = {
     border: "1px solid grey",
@@ -8,11 +9,20 @@ const ShipmentProblem = () => {
   };
   return (
     <Box style={boxStyle}>
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          Image
+      <Grid container spacing={3} justifyContent="space-evenly">
+        <Grid item xs={12} sm={4} md={4}>
+          <CardMedia
+            component="img"
+            alt="Question Mark"
+            image={image}
+            style={{
+              width: "100px",
+              height: "100px",
+              margin: "auto",
+            }}
+          />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8} md={8}>
           <Stack spacing={2}>
             <Typography>Is there a problem in your shipment?!</Typography>
             <Button
