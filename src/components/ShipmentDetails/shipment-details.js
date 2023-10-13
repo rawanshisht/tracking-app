@@ -4,8 +4,10 @@ import { Stack, Box, Grid, Typography } from "@mui/material";
 import ShipmentProblem from "../ShipmentProblem/shipment-problem";
 import { useTranslation } from "react-i18next";
 import "../../App.css";
+import { useParams } from "react-router-dom";
 const ShipmentDetails = () => {
   const { t } = useTranslation();
+  const { id } = useParams();
   const address = {
     AddressLine1: "Zohor Road",
     AddressLine2: "Madinet Nasr",
@@ -20,7 +22,7 @@ const ShipmentDetails = () => {
       {isLTR ? (
         <>
           <Grid item xs={10} sm={10} md={6}>
-            <ShipmentTable />
+            <ShipmentTable id={id} />
           </Grid>
           <Grid item xs={10} sm={10} md={4}>
             <Stack spacing={2}>
@@ -60,7 +62,7 @@ const ShipmentDetails = () => {
               </Stack>
             </Grid>
             <Grid item xs={10} sm={10} md={6} sx={{ order: { xs: 1 } }}>
-              <ShipmentTable />
+              <ShipmentTable id={id} />
             </Grid>
           </Grid>
         </>

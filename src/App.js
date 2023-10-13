@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/navbar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ShipmentDetails from "./components/ShipmentDetails/shipment-details";
 import { Stack } from "@mui/material";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   const theme = createTheme({
     typography: {
@@ -14,7 +15,12 @@ function App() {
       <ThemeProvider theme={theme}>
         <Stack justifyContent="space-around" alignItems="center" spacing={1}>
           <Navbar />
-          <ShipmentDetails />
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/:id" element={<ShipmentDetails />} />
+              <Route path="/" element={<ShipmentDetails />} />
+            </Routes>
+          </BrowserRouter>
         </Stack>
       </ThemeProvider>
     </>

@@ -3,6 +3,7 @@ import axios from "axios";
 import moment from "moment";
 import "../../App.css";
 import { useTranslation } from "react-i18next";
+
 import {
   Typography,
   Box,
@@ -15,10 +16,9 @@ import {
   TableRow,
 } from "@mui/material";
 
-const ShipmentTable = () => {
+const ShipmentTable = (props) => {
   const { t } = useTranslation();
   const [transitEvents, setTransitEvents] = useState([]);
-  const trackingNumber = 67151313;
   const isLTR = t("dir") === "ltr";
   const cellStyle = {
     textAlign: isLTR ? "left" : "right",
@@ -76,7 +76,7 @@ const ShipmentTable = () => {
   };
   useEffect(() => {
     axios
-      .get(`https://tracking.bosta.co/shipments/track/${trackingNumber}`)
+      .get(`https://tracking.bosta.co/shipments/track/${props.id}`)
       .then((res) => {
         setTransitEvents(res.data.TransitEvents);
       })
