@@ -3,5 +3,20 @@
     "button": "انقر هنا",
     "dir": "rtl",
     "ShipmentProblem": "هل يوجد مشكلة في شحنتك؟",
-    "ReportProblem" : "إبلاغ عن مشكلة"
+    "ReportProblem" : "إبلاغ عن مشكلة",
+    "DeliveryAddress": "عنوان التسليم",
+    "ShipmentDetails":"تفاصيل الشحنة",
+    "Branch": "الفرع",
+    "Date": "التاريخ",
+    "Time": "الوقت",
+    "Details": "التفاصيل",
+    "TICKET_CREATED" : "تم إنشاء الشحنة",
+    "PACKAGE_RECEIVED": "تم استلام الشحنة",
+    "IN_TRANSIT": "في المخزن",
+    "OUT_FOR_DELIVERY": "الشحنة خرجت للتسليم",
+    "WAITING_FOR_CUSTOMER_ACTION": "في انتظار المستلم",
+    "NOT_YET_SHIPPED": "لم يتم شحن الشحنة",
+    "DELIVERED_TO_SENDER": "تم تسليم الشحنة",
+    "DELIVERED": "تم التسليم",
+    "CANCELLED": "تم الغاء الشحنة"
   }

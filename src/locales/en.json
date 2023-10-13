@@ -3,5 +3,20 @@
     "button": "Click Me",
     "dir": "ltr",
     "ShipmentProblem": "Is there a problem with your shipment?",
-    "ReportProblem": "Report"
+    "ReportProblem": "Report a Problem",
+    "DeliveryAddress": "Delivery Address",
+    "ShipmentDetails": "Shipment Details",
+    "Branch": "Branch",
+    "Date": "Date",
+    "Time": "Time",
+    "Details": "Details",
+    "TICKET_CREATED" : "Shipment created",
+    "PACKAGE_RECEIVED": "Shipment received from vendor",
+    "IN_TRANSIT": "In transit",
+    "OUT_FOR_DELIVERY": "Out for Delivery",
+    "WAITING_FOR_CUSTOMER_ACTION": "Waiting for customer action",
+    "NOT_YET_SHIPPED": "Not yet shipped",
+    "DELIVERED_TO_SENDER": "Delivered to sender",
+    "DELIVERED": "Delivered",
+    "CANCELLED": "Cancelled"
   }

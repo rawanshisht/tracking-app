@@ -2,7 +2,10 @@ import React from "react";
 import ShipmentTable from "../ShipmentData/shipment-table";
 import { Stack, Box, Grid, Typography } from "@mui/material";
 import ShipmentProblem from "../ShipmentProblem/shipment-problem";
+import { useTranslation } from "react-i18next";
+
 const ShipmentDetails = () => {
+  const { t } = useTranslation();
   const address = {
     AddressLine1: "Zohor Road",
     AddressLine2: "Madinet Nasr",
@@ -19,20 +22,45 @@ const ShipmentDetails = () => {
   };
   return (
     <Grid container spacing={2} justifyContent="space-evenly">
-      <Grid item xs={10} sm={10} md={6}>
-        <ShipmentTable />
-      </Grid>
-      <Grid item xs={10} sm={10} md={4}>
-        <Stack spacing={2}>
-          <Box>
-            <Typography variant="h6">Delivery Address</Typography>
-            <Box style={boxStyle}>{Object.values(address).join(", ")}</Box>
-          </Box>
-          <Box>
-            <ShipmentProblem />
-          </Box>
-        </Stack>
-      </Grid>
+      {t("dir") === "ltr" ? (
+        <>
+          <Grid item xs={10} sm={10} md={6}>
+            <ShipmentTable />
+          </Grid>
+          <Grid item xs={10} sm={10} md={4}>
+            <Stack spacing={2}>
+              <Box>
+                <Typography variant="h6" dir={t("dir")}>
+                  {t("DeliveryAddress")}
+                </Typography>
+                <Box style={boxStyle}>{Object.values(address).join(", ")}</Box>
+              </Box>
+              <Box>
+                <ShipmentProblem />
+              </Box>
+            </Stack>
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Grid item xs={10} sm={10} md={4}>
+            <Stack spacing={2}>
+              <Box>
+                <Typography variant="h6" dir={t("dir")}>
+                  {t("DeliveryAddress")}
+                </Typography>
+                <Box style={boxStyle}>{Object.values(address).join(", ")}</Box>
+              </Box>
+              <Box>
+                <ShipmentProblem />
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid item xs={10} sm={10} md={6}>
+            <ShipmentTable />
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 };
