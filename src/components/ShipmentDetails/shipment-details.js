@@ -3,7 +3,7 @@ import ShipmentTable from "../ShipmentData/shipment-table";
 import { Stack, Box, Grid, Typography } from "@mui/material";
 import ShipmentProblem from "../ShipmentProblem/shipment-problem";
 import { useTranslation } from "react-i18next";
-
+import "../../App.css";
 const ShipmentDetails = () => {
   const { t } = useTranslation();
   const address = {
@@ -14,15 +14,10 @@ const ShipmentDetails = () => {
     Government: "Cairo",
     Country: "Egypt",
   };
-  const boxStyle = {
-    border: "1px solid grey",
-    backgroundColor: "#f2f2f2",
-    boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.1)",
-    padding: "10px",
-  };
+  const isLTR = t("dir") === "ltr";
   return (
     <Grid container spacing={2} justifyContent="space-evenly">
-      {t("dir") === "ltr" ? (
+      {isLTR ? (
         <>
           <Grid item xs={10} sm={10} md={6}>
             <ShipmentTable />
@@ -33,7 +28,7 @@ const ShipmentDetails = () => {
                 <Typography variant="h6" dir={t("dir")}>
                   {t("DeliveryAddress")}
                 </Typography>
-                <Box style={boxStyle}>{Object.values(address).join(", ")}</Box>
+                <Box id="addressBox">{Object.values(address).join(", ")}</Box>
               </Box>
               <Box>
                 <ShipmentProblem />
@@ -49,7 +44,7 @@ const ShipmentDetails = () => {
                 <Typography variant="h6" dir={t("dir")}>
                   {t("DeliveryAddress")}
                 </Typography>
-                <Box style={boxStyle}>{Object.values(address).join(", ")}</Box>
+                <Box id="addressBox">{Object.values(address).join(", ")}</Box>
               </Box>
               <Box>
                 <ShipmentProblem />

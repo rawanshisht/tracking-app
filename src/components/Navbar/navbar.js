@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
 import i18n from "i18next";
-
+import "../../App.css";
 function Navbar() {
   const [isEng, setIsEng] = useState(true);
   const handleLanguageClick = () => {
@@ -12,15 +12,7 @@ function Navbar() {
   return (
     <Box>
       Navbar
-      <Button
-        disableRipple
-        onClick={handleLanguageClick}
-        style={{
-          backgroundColor: "transparent",
-          color: "#e30613",
-          fontWeight: "bold",
-        }}
-      >
+      <Button disableRipple onClick={handleLanguageClick} id="languageButton">
         {isEng ? "ع" : "Eng"}
       </Button>
     </Box>
