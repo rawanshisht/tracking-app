@@ -11,11 +11,9 @@ import {
   TableHead,
   Paper,
   TableRow,
-  useMediaQuery,
 } from "@mui/material";
 
 const ShipmentTable = () => {
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [transitEvents, setTransitEvents] = useState([]);
   const trackingNumber = 67151313;
   useEffect(() => {

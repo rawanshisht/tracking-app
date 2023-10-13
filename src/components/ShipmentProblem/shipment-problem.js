@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Grid, Stack, Typography, Button, CardMedia } from "@mui/material";
 import image from "../../Assets/question.jpg";
+import { useTranslation } from "react-i18next";
+
 const ShipmentProblem = () => {
+  const { t } = useTranslation();
   const boxStyle = {
     border: "1px solid grey",
     boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.1)",
@@ -24,12 +27,13 @@ const ShipmentProblem = () => {
         </Grid>
         <Grid item xs={12} sm={8} md={8}>
           <Stack spacing={2}>
-            <Typography>Is there a problem in your shipment?!</Typography>
+            <Typography dir={t("dir")}>{t("ShipmentProblem")}</Typography>
             <Button
+              dir={t("dir")}
               variant="contained"
               style={{ backgroundColor: "#e30613", color: "white" }}
             >
-              Report
+              {t("ReportProblem")}
             </Button>
           </Stack>
         </Grid>

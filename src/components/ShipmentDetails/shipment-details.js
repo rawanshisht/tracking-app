@@ -15,11 +15,11 @@ const ShipmentDetails = () => {
     border: "1px solid grey",
     backgroundColor: "#f2f2f2",
     boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.1)",
-    padding: "20px",
+    padding: "10px",
   };
   return (
-    <Grid container spacing={1} justifyContent="space-evenly">
-      <Grid item xs={10} sm={10} md={7}>
+    <Grid container spacing={2} justifyContent="space-evenly">
+      <Grid item xs={10} sm={10} md={6}>
         <ShipmentTable />
       </Grid>
       <Grid item xs={10} sm={10} md={4}>
