@@ -18,5 +18,9 @@
     "NOT_YET_SHIPPED": "لم يتم شحن الشحنة",
     "DELIVERED_TO_SENDER": "تم تسليم الشحنة",
     "DELIVERED": "تم التسليم",
-    "CANCELLED": "تم الغاء الشحنة"
+    "CANCELLED": "تم الغاء الشحنة",
+    "ShipmentNumber": "رقم الشحنة",
+    "LastUpdate": "آخر تحديث",
+    "VendorName": "اسم التاجر",
+    "DeliveryDate": "موعد التسليم خلال"
   }

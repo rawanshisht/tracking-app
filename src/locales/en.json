@@ -18,5 +18,9 @@
     "NOT_YET_SHIPPED": "Not yet shipped",
     "DELIVERED_TO_SENDER": "Delivered to sender",
     "DELIVERED": "Delivered",
-    "CANCELLED": "Cancelled"
+    "CANCELLED": "Cancelled",
+    "ShipmentNumber": "Shipment Number",
+    "LastUpdate": "Last Update",
+    "VendorName": "Vendor Name",
+    "ExpectedDeliveryDate": "Expected Delivery Date"
   }

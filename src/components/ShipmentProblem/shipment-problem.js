@@ -7,7 +7,7 @@ import "../../App.css";
 const ShipmentProblem = () => {
   const { t } = useTranslation();
   return (
-    <Box id="shipmentProblem">
+    <Box id="cardBorder">
       <Grid container spacing={3} justifyContent="space-evenly">
         <Grid item xs={12} sm={4} md={4}>
           <CardMedia
