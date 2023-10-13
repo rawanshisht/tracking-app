@@ -1,8 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import ShipmentDetails from "./components/ShipmentDetails/shipment-details";
-import ShipmentTracking from "./components/ShipmentTracking/shipment-tracking";
+import Main from "./components/Main/main";
 import { Stack } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
@@ -13,18 +12,16 @@ function App() {
   });
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Stack justifyContent="space-around" alignItems="center" spacing={1}>
-          <Navbar />
-          <ShipmentTracking />
-          <BrowserRouter>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Stack justifyContent="space-around" alignItems="center" spacing={1}>
+            <Navbar />
             <Routes>
-              <Route exact path="/:id" element={<ShipmentDetails />} />
-              <Route path="/" element={<ShipmentDetails />} />
+              <Route path="/:id" element={<Main />} />
             </Routes>
-          </BrowserRouter>
-        </Stack>
-      </ThemeProvider>
+          </Stack>
+        </ThemeProvider>
+      </BrowserRouter>
     </>
   );
 }

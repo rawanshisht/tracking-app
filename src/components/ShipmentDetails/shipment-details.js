@@ -3,9 +3,9 @@ import ShipmentTable from "../ShipmentData/shipment-table";
 import { Stack, Box, Grid, Typography } from "@mui/material";
 import ShipmentProblem from "../ShipmentProblem/shipment-problem";
 import { useTranslation } from "react-i18next";
-import "../../App.css";
 import { useParams } from "react-router-dom";
-const ShipmentDetails = () => {
+import "../../App.css";
+const ShipmentDetails = (props) => {
   const { t } = useTranslation();
   const { id } = useParams();
   const address = {
@@ -22,7 +22,7 @@ const ShipmentDetails = () => {
       {isLTR ? (
         <>
           <Grid item xs={10} sm={10} md={6}>
-            <ShipmentTable id={id} />
+            <ShipmentTable id={id} data={props.data} />
           </Grid>
           <Grid item xs={10} sm={10} md={4}>
             <Stack spacing={2}>
@@ -62,7 +62,7 @@ const ShipmentDetails = () => {
               </Stack>
             </Grid>
             <Grid item xs={10} sm={10} md={6} sx={{ order: { xs: 1 } }}>
-              <ShipmentTable id={id} />
+              <ShipmentTable id={id} data={props.data} />
             </Grid>
           </Grid>
         </>

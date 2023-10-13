@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import moment from "moment";
 import "../../App.css";
 import { useTranslation } from "react-i18next";
@@ -17,7 +16,7 @@ import {
 
 const ShipmentTable = (props) => {
   const { t } = useTranslation();
-  const [transitEvents, setTransitEvents] = useState([]);
+  const { data } = props;
   const isLTR = t("dir") === "ltr";
   const cellStyle = {
     textAlign: isLTR ? "left" : "right",
@@ -44,7 +43,7 @@ const ShipmentTable = (props) => {
   };
   const renderTableBody = () => {
     return (
-      transitEvents
+      data.TransitEvents
         // .filter((d) => d.hub)
         .map((row) => (
           <TableRow key={row.timestamp}>
@@ -73,15 +72,6 @@ const ShipmentTable = (props) => {
         ))
     );
   };
-  useEffect(() => {
-    axios
-      .get(`https://tracking.bosta.co/shipments/track/${props.id}`)
-      .then((res) => {
-        setTransitEvents(res.data.TransitEvents);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   return (
     <Box>
       <Typography variant="h6" dir={t("dir")}>

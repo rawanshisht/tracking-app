@@ -2,9 +2,11 @@ import { Grid, Typography, Stack, Divider } from "@mui/material";
 import CustomizedStepper from "../Stepper/stepper";
 import "../../App.css";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 
-const ShipmentTracking = () => {
+const ShipmentTracking = (props) => {
   const { t } = useTranslation();
+  const { data } = props;
   const isLTR = t("dir") === "ltr";
   const cellStyle = {
     textAlign: isLTR ? "left" : "right",
@@ -28,10 +30,10 @@ const ShipmentTracking = () => {
           >
             <Stack>
               <Typography variant="h6" style={cellStyle}>
-                {t("ShipmentNumber") + " 13737343"}
+                {t("ShipmentNumber")} {data.TrackingNumber}
               </Typography>
               <Typography variant="h6" style={cellStyle}>
-                --
+                {t(data.CurrentStatus?.state)}
               </Typography>
             </Stack>
 
@@ -40,7 +42,9 @@ const ShipmentTracking = () => {
                 {t("LastUpdate")}
               </Typography>
               <Typography variant="h6" style={cellStyle}>
-                13/3/2020
+                {moment(data.CurrentStatus?.timestamp).format(
+                  "DD/MM/YYYY hh:mm A"
+                )}
               </Typography>
             </Stack>
             <Stack>
@@ -56,7 +60,7 @@ const ShipmentTracking = () => {
                 {t("ExpectedDeliveryDate")}
               </Typography>
               <Typography variant="h6" style={cellStyle}>
-                15/3/2020
+                {moment(data.PromisedDate).format("DD/MM/YYYY")}
               </Typography>
             </Stack>
           </Stack>

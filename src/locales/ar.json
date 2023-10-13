@@ -22,5 +22,5 @@
     "ShipmentNumber": "رقم الشحنة",
     "LastUpdate": "آخر تحديث",
     "VendorName": "اسم التاجر",
-    "DeliveryDate": "موعد التسليم خلال"
+    "ExpectedDeliveryDate": "موعد التسليم خلال"
   }
