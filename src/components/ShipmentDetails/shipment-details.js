@@ -38,21 +38,30 @@ const ShipmentDetails = () => {
         </>
       ) : (
         <>
-          <Grid item xs={10} sm={10} md={4}>
-            <Stack spacing={2}>
-              <Box>
-                <Typography variant="h6" dir={t("dir")}>
-                  {t("DeliveryAddress")}
-                </Typography>
-                <Box id="addressBox">{Object.values(address).join(", ")}</Box>
-              </Box>
-              <Box>
-                <ShipmentProblem />
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item xs={10} sm={10} md={6}>
-            <ShipmentTable />
+          <Grid
+            container
+            item
+            xs={10}
+            sm={10}
+            md={10}
+            justifyContent="space-evenly"
+          >
+            <Grid item xs={10} sm={10} md={4} sx={{ order: { xs: 2, md: 1 } }}>
+              <Stack spacing={2}>
+                <Box>
+                  <Typography variant="h6" dir={t("dir")}>
+                    {t("DeliveryAddress")}
+                  </Typography>
+                  <Box id="addressBox">{Object.values(address).join(", ")}</Box>
+                </Box>
+                <Box>
+                  <ShipmentProblem />
+                </Box>
+              </Stack>
+            </Grid>
+            <Grid item xs={10} sm={10} md={6} sx={{ order: { xs: 1 } }}>
+              <ShipmentTable />
+            </Grid>
           </Grid>
         </>
       )}

@@ -30,12 +30,12 @@ const ShipmentTable = () => {
         <TableRow>
           {isLTR
             ? [...colHeader].map((col) => (
-                <TableCell dir={t("dir")} style={cellStyle}>
+                <TableCell key={col} dir={t("dir")} style={cellStyle}>
                   {t(col)}
                 </TableCell>
               ))
             : [...colHeader].reverse().map((col) => (
-                <TableCell dir={t("dir")} style={cellStyle}>
+                <TableCell key={col} dir={t("dir")} style={cellStyle}>
                   {t(col)}
                 </TableCell>
               ))}
