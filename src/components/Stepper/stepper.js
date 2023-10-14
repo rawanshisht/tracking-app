@@ -1,64 +1,66 @@
-import React from "react";
-import { Stepper, Step, StepLabel, Grid } from "@mui/material";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-//import { makeStyles } from "@mui/styles";
+import { Stack, Stepper, Step, StepLabel } from "@mui/material";
+import Check from "@mui/icons-material/Check";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
-const CustomizedStepper = () => {
+const CustomStepper = (props) => {
   const { t } = useTranslation();
   const checkpoints = [
-    t("TICKET_CREATED"),
-    t("PACKAGE_RECEIVED"),
-    t("OUT_FOR_DELIVERY"),
-    t("DELIVERED"),
+    "TICKET_CREATED",
+    "PACKAGE_RECEIVED",
+    "OUT_FOR_DELIVERY",
+    "DELIVERED",
   ];
+  const [activeStep, setActiveStep] = useState(0);
+  const state = props.state;
 
-  const [activeStep, setActiveStep] = React.useState(0);
+  const initialStepIndex = checkpoints.indexOf(state);
+  const [stepIndex, setStepIndex] = useState(
+    initialStepIndex !== -1 ? initialStepIndex : 2
+  );
 
-  // const useStyles = makeStyles((theme) => ({
-  //   connectorLine: {
-  //     borderTop: "2px solid #3f51b5",
-  //   },
-  // }));
+  useEffect(() => {
+    if (state === "CANCELLED" || stepIndex === -1) {
+      setStepIndex(2);
+      setActiveStep(2);
+    } else {
+      setActiveStep(stepIndex);
+    }
+  }, [state, stepIndex]);
 
-  const CustomStepIcon = ({ completed }) => {
-    //const classes = useStyles();
-    //className={classes.connectorLine}
+  const CustomStepIcon = ({ completed, active }) => {
     return (
       <div>
         {completed ? (
-          <CheckCircleIcon color="primary" />
+          <Check sx={{ color: "#3f51b5" }} />
         ) : (
-          <div style={{ width: 24, height: 24 }} />
+          <FiberManualRecordIcon sx={{ color: active ? "#3f51b5" : "#ccc" }} />
         )}
       </div>
     );
   };
 
   return (
-    <Grid
-      container
-      justifyContent="center"
-      spacing={1}
-      style={{ padding: "20px" }}
-    >
-      <Grid item xs={12} sm={12} md={12}>
-        <Stepper activeStep={activeStep} alternativeLabel>
-          {checkpoints.map((label, index) => (
-            <Step key={label}>
-              <StepLabel
-                StepIconComponent={() => (
-                  <CustomStepIcon completed={index <= activeStep} />
-                )}
-              >
-                {label}
-              </StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Grid>
-    </Grid>
+    <Stack sx={{ width: "100%" }} spacing={4}>
+      <Stepper activeStep={stepIndex} alternativeLabel>
+        {checkpoints.map((label, index) => (
+          <Step key={label}>
+            <StepLabel
+              StepIconComponent={(props) => (
+                <CustomStepIcon
+                  completed={index <= stepIndex}
+                  active={index === stepIndex}
+                />
+              )}
+            >
+              {t(label)}
+            </StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+    </Stack>
   );
 };
 
-export default CustomizedStepper;
+export default CustomStepper;

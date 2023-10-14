@@ -65,7 +65,7 @@ const ShipmentTracking = (props) => {
             </Stack>
           </Stack>
           <Grid justifyContent="center" alignItems="center">
-            <CustomizedStepper />
+            <CustomizedStepper state={data.CurrentStatus?.state} />
           </Grid>
         </Stack>
       </Grid>
