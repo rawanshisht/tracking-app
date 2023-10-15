@@ -43,7 +43,7 @@ const ShipmentTable = (props) => {
   };
   const renderTableBody = () => {
     return (
-      data.TransitEvents
+      data?.TransitEvents
         // .filter((d) => d.hub)
         .map((row) => (
           <TableRow key={row.timestamp}>

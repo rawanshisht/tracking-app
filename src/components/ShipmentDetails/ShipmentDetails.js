@@ -1,7 +1,7 @@
 import React from "react";
-import ShipmentTable from "../ShipmentData/shipment-table";
+import ShipmentTable from "../ShipmentData/ShipmentTable";
 import { Stack, Box, Grid, Typography } from "@mui/material";
-import ShipmentProblem from "../ShipmentProblem/shipment-problem";
+import ShipmentProblem from "../ShipmentProblem/ShipmentProblem";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import "../../App.css";

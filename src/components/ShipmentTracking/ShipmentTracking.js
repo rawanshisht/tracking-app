@@ -1,5 +1,5 @@
 import { Grid, Typography, Stack, Divider } from "@mui/material";
-import CustomizedStepper from "../Stepper/stepper";
+import CustomizedStepper from "../Stepper/Stepper";
 import "../../App.css";
 import { useTranslation } from "react-i18next";
 import moment from "moment";

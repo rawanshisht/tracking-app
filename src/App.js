@@ -1,7 +1,9 @@
 import "./App.css";
-import Navbar from "./components/Navbar/navbar";
+import Navbar from "./components/Navbar/Navbar";
+import Main from "./components/Main/Main";
+import NotFound from "./components/NotFound/NotFound";
+import Home from "./components/Home/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Main from "./components/Main/main";
 import { Stack } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
@@ -25,6 +27,9 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/:id" element={<Main />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/notfound" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Stack>
         </ThemeProvider>
