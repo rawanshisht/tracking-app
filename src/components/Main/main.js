@@ -5,6 +5,7 @@ import axios from "axios";
 import "../../App.css";
 import { CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { Stack, Grid } from "@mui/material";
 const Main = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -26,10 +27,20 @@ const Main = () => {
   }, [id]);
 
   return (
-    <>
-      <ShipmentTracking data={data} />
-      {isLoading ? <CircularProgress /> : <ShipmentDetails data={data} />}
-    </>
+    <Grid container justifyContent="center" alignItems="center" spacing={3}>
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        <>
+          <Grid item xs={10} sm={10} md={10}>
+            <ShipmentTracking data={data} />
+          </Grid>
+          <Grid item xs={10} sm={10} md={10}>
+            <ShipmentDetails data={data} />
+          </Grid>
+        </>
+      )}
+    </Grid>
   );
 };
 export default Main;

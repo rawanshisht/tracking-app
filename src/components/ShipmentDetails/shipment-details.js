@@ -18,13 +18,13 @@ const ShipmentDetails = (props) => {
   };
   const isLTR = t("dir") === "ltr";
   return (
-    <Grid container spacing={2} justifyContent="space-evenly">
+    <Grid container spacing={2}>
       {isLTR ? (
         <>
-          <Grid item xs={10} sm={10} md={6}>
+          <Grid item xs={12} sm={6} md={8} justifyContent="space-between">
             <ShipmentTable id={id} data={props.data} />
           </Grid>
-          <Grid item xs={10} sm={10} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Stack spacing={2}>
               <Box>
                 <Typography variant="h6" dir={t("dir")}>
@@ -41,29 +41,27 @@ const ShipmentDetails = (props) => {
       ) : (
         <>
           <Grid
-            container
             item
-            xs={10}
-            sm={10}
-            md={10}
-            justifyContent="space-evenly"
+            xs={12}
+            sm={6}
+            md={4}
+            sx={{ order: { xs: 2, md: 1 } }}
+            justifyContent="space-between"
           >
-            <Grid item xs={10} sm={10} md={4} sx={{ order: { xs: 2, md: 1 } }}>
-              <Stack spacing={2}>
-                <Box>
-                  <Typography variant="h6" dir={t("dir")}>
-                    {t("DeliveryAddress")}
-                  </Typography>
-                  <Box id="addressBox">{Object.values(address).join(", ")}</Box>
-                </Box>
-                <Box>
-                  <ShipmentProblem />
-                </Box>
-              </Stack>
-            </Grid>
-            <Grid item xs={10} sm={10} md={6} sx={{ order: { xs: 1 } }}>
-              <ShipmentTable id={id} data={props.data} />
-            </Grid>
+            <Stack spacing={2}>
+              <Box>
+                <Typography variant="h6" dir={t("dir")}>
+                  {t("DeliveryAddress")}
+                </Typography>
+                <Box id="addressBox">{Object.values(address).join(", ")}</Box>
+              </Box>
+              <Box>
+                <ShipmentProblem />
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} sm={6} md={8} sx={{ order: { xs: 1 } }}>
+            <ShipmentTable id={id} data={props.data} />
           </Grid>
         </>
       )}

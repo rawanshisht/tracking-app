@@ -14,7 +14,14 @@ function App() {
     <>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <Stack justifyContent="space-around" alignItems="center" spacing={1}>
+          <Stack
+            xs={10}
+            sm={10}
+            md={10}
+            justifyContent="space-evenly"
+            alignItems="center"
+            spacing={1}
+          >
             <Navbar />
             <Routes>
               <Route path="/:id" element={<Main />} />
