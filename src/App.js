@@ -1,8 +1,8 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Main from "./components/Main/Main";
 import NotFound from "./components/NotFound/NotFound";
-import Home from "./components/Home/Home";
+import Home from "./components/HomePage/HomePage";
+import Main from "./components/Main/MainPage";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Stack } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
